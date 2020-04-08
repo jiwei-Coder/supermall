@@ -11,8 +11,8 @@
         <div>
 
           <tab-content-category :subcategories="showSubcategory"/>
-          <tab-control :titles="['综合', '新品', '销量']"
-                       @itemClick="tabClick"/>
+<!--          <tab-control :titles="['综合', '新品', '销量']"-->
+<!--                       @itemClick="tabClick"/>-->
           <goods-list :goods="showCategoryDetail"/>
         </div>
       </scroll>
@@ -27,7 +27,7 @@
   import TabContentCategory from './childComps/TabContentCategory'
 
 
-  import TabControl from 'components/content/tabControl/TabControl'
+  // import TabControl from 'components/content/tabControl/TabControl'
   import Scroll from 'components/common/scroll/Scroll'
   import GoodsList from 'components/content/goods/GoodItemList.vue'
   //
@@ -41,7 +41,7 @@
 		  NavBar,
       TabMenu,
       TabContentCategory,
-      TabControl,
+      // TabControl,
       Scroll,
       GoodsList
     },
@@ -56,7 +56,7 @@
     computed:{
       showSubcategory() {
         if (this.currentIndex === -1) return {}
-        console.log(this.categoryData[this.currentIndex].subcategories);
+        // console.log(this.categoryData[this.currentIndex].subcategories);
         return this.categoryData[this.currentIndex].subcategories
       },
       showCategoryDetail() {
@@ -78,7 +78,7 @@
         getCategory().then(res => {
           // 1.获取分类数据
           this.categories = res.data.category.list
-          console.log(res);
+          // console.log(res);
           // 2.初始化每个类别的子数据
           for (let i = 0; i < this.categories.length; i++) {
             this.categoryData[i] = {
